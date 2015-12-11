@@ -15,14 +15,39 @@
 
 @property (nonatomic,strong) NSLayoutConstraint *editToolBarBottomConstraint;
 
+@property (nonatomic,strong) UIView *contentView;
+
 @end
 
 @implementation ViewController
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    [self setUpContentView];
+
+    [self setUpEditToolBar];
+}
+
+- (void)setUpContentView
+{
+    self.contentView = [[UIView alloc] init];
+    self.contentView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.contentView.backgroundColor = [UIColor yellowColor];
+    [self.view addSubview:self.contentView];
+    
+    NSDictionary *bindings = NSDictionaryOfVariableBindings(_contentView);
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[_contentView]-0-|" options:0 metrics:nil views:bindings]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[_contentView]-0-|" options:0 metrics:nil views:bindings]];
+    
+//    self.contentView.frame = [UIApplication sharedApplication].keyWindow.bounds;
+}
+
+- (void)setUpEditToolBar
+{
     ZGEditToolBar *editToolBar = [[ZGEditToolBar alloc] init];
     self.editToolBar = editToolBar;
     // 这两句必须记住得做
@@ -39,12 +64,17 @@
     self.editToolBarBottomConstraint = [NSLayoutConstraint constraintWithItem:editToolBar attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
     [self.view addConstraint:self.editToolBarBottomConstraint];
     
+    // KeyboardFrameChange 监听
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardFrameChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
 
-    
-    
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+// 点击退键盘
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     [self.view endEditing:YES];
