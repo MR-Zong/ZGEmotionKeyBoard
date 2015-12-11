@@ -17,6 +17,7 @@
 		EF12E89C1C1A6FBB00BA65C8 /* EmotionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF12E89B1C1A6FBB00BA65C8 /* EmotionUITests.m */; };
 		EF12E8B41C1A7AE100BA65C8 /* ZGEditToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = EF12E8B31C1A7AE100BA65C8 /* ZGEditToolBar.m */; };
 		EF12E8BF1C1AC48100BA65C8 /* ZGEmotionKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF12E8BE1C1AC48100BA65C8 /* ZGEmotionKeyboardView.m */; };
+		EF12E8C11C1AD26000BA65C8 /* Emotion效果图.png in Resources */ = {isa = PBXBuildFile; fileRef = EF12E8C01C1AD26000BA65C8 /* Emotion效果图.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		EF12E8B61C1AA5D900BA65C8 /* Emotion-PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Emotion-PrefixHeader.pch"; sourceTree = "<group>"; };
 		EF12E8BD1C1AC48100BA65C8 /* ZGEmotionKeyboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGEmotionKeyboardView.h; sourceTree = "<group>"; };
 		EF12E8BE1C1AC48100BA65C8 /* ZGEmotionKeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGEmotionKeyboardView.m; sourceTree = "<group>"; };
+		EF12E8C01C1AD26000BA65C8 /* Emotion效果图.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Emotion效果图.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 		EF12E8761C1A6FBA00BA65C8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EF12E8C01C1AD26000BA65C8 /* Emotion效果图.png */,
 				EF12E8771C1A6FBA00BA65C8 /* main.m */,
 				EF12E8B61C1AA5D900BA65C8 /* Emotion-PrefixHeader.pch */,
 			);
@@ -322,6 +325,7 @@
 			files = (
 				EF12E8861C1A6FBB00BA65C8 /* LaunchScreen.storyboard in Resources */,
 				EF12E8831C1A6FBB00BA65C8 /* Assets.xcassets in Resources */,
+				EF12E8C11C1AD26000BA65C8 /* Emotion效果图.png in Resources */,
 				EF12E8811C1A6FBB00BA65C8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
