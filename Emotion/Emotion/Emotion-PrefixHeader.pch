@@ -1,0 +1,23 @@
+//
+//  Emotion-PrefixHeader.pch
+//  Emotion
+//
+//  Created by Zong on 15/12/11.
+//  Copyright © 2015年 Zong. All rights reserved.
+//
+
+#ifndef Emotion_PrefixHeader_pch
+#define Emotion_PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* Emotion_PrefixHeader_pch */
+
+#define _DEBUG
+
+#ifdef _DEBUG
+#define DLog( s, ... ) NSLog( @"<%@:(%d)> %@",  [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
+#else
+#define DLog( s, ... )
+#endif

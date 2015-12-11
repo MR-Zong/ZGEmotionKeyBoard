@@ -15,6 +15,8 @@
 		EF12E8861C1A6FBB00BA65C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF12E8841C1A6FBB00BA65C8 /* LaunchScreen.storyboard */; };
 		EF12E8911C1A6FBB00BA65C8 /* EmotionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF12E8901C1A6FBB00BA65C8 /* EmotionTests.m */; };
 		EF12E89C1C1A6FBB00BA65C8 /* EmotionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF12E89B1C1A6FBB00BA65C8 /* EmotionUITests.m */; };
+		EF12E8B41C1A7AE100BA65C8 /* ZGEditToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = EF12E8B31C1A7AE100BA65C8 /* ZGEditToolBar.m */; };
+		EF12E8BF1C1AC48100BA65C8 /* ZGEmotionKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF12E8BE1C1AC48100BA65C8 /* ZGEmotionKeyboardView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,11 @@
 		EF12E8971C1A6FBB00BA65C8 /* EmotionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmotionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF12E89B1C1A6FBB00BA65C8 /* EmotionUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmotionUITests.m; sourceTree = "<group>"; };
 		EF12E89D1C1A6FBB00BA65C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF12E8B21C1A7AE100BA65C8 /* ZGEditToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGEditToolBar.h; sourceTree = "<group>"; };
+		EF12E8B31C1A7AE100BA65C8 /* ZGEditToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGEditToolBar.m; sourceTree = "<group>"; };
+		EF12E8B61C1AA5D900BA65C8 /* Emotion-PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Emotion-PrefixHeader.pch"; sourceTree = "<group>"; };
+		EF12E8BD1C1AC48100BA65C8 /* ZGEmotionKeyboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGEmotionKeyboardView.h; sourceTree = "<group>"; };
+		EF12E8BE1C1AC48100BA65C8 /* ZGEmotionKeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGEmotionKeyboardView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +108,7 @@
 		EF12E8751C1A6FBA00BA65C8 /* Emotion */ = {
 			isa = PBXGroup;
 			children = (
+				EF12E8AA1C1A7AA500BA65C8 /* ZGEmotin */,
 				EF12E8791C1A6FBA00BA65C8 /* AppDelegate.h */,
 				EF12E87A1C1A6FBA00BA65C8 /* AppDelegate.m */,
 				EF12E87C1C1A6FBA00BA65C8 /* ViewController.h */,
@@ -118,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				EF12E8771C1A6FBA00BA65C8 /* main.m */,
+				EF12E8B61C1AA5D900BA65C8 /* Emotion-PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -138,6 +147,73 @@
 				EF12E89D1C1A6FBB00BA65C8 /* Info.plist */,
 			);
 			path = EmotionUITests;
+			sourceTree = "<group>";
+		};
+		EF12E8AA1C1A7AA500BA65C8 /* ZGEmotin */ = {
+			isa = PBXGroup;
+			children = (
+				EF12E8AB1C1A7AA500BA65C8 /* EmotionImg */,
+				EF12E8AC1C1A7AA500BA65C8 /* EmotionModel */,
+				EF12E8AD1C1A7AA500BA65C8 /* EmotionResources */,
+				EF12E8AE1C1A7AA500BA65C8 /* EmotionUtil */,
+				EF12E8AF1C1A7AA500BA65C8 /* EmotionVC */,
+			);
+			path = ZGEmotin;
+			sourceTree = "<group>";
+		};
+		EF12E8AB1C1A7AA500BA65C8 /* EmotionImg */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = EmotionImg;
+			sourceTree = "<group>";
+		};
+		EF12E8AC1C1A7AA500BA65C8 /* EmotionModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = EmotionModel;
+			sourceTree = "<group>";
+		};
+		EF12E8AD1C1A7AA500BA65C8 /* EmotionResources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = EmotionResources;
+			sourceTree = "<group>";
+		};
+		EF12E8AE1C1A7AA500BA65C8 /* EmotionUtil */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = EmotionUtil;
+			sourceTree = "<group>";
+		};
+		EF12E8AF1C1A7AA500BA65C8 /* EmotionVC */ = {
+			isa = PBXGroup;
+			children = (
+				EF12E8B01C1A7AA500BA65C8 /* EmotionController */,
+				EF12E8B11C1A7AA500BA65C8 /* EmotionView */,
+			);
+			path = EmotionVC;
+			sourceTree = "<group>";
+		};
+		EF12E8B01C1A7AA500BA65C8 /* EmotionController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = EmotionController;
+			sourceTree = "<group>";
+		};
+		EF12E8B11C1A7AA500BA65C8 /* EmotionView */ = {
+			isa = PBXGroup;
+			children = (
+				EF12E8B21C1A7AE100BA65C8 /* ZGEditToolBar.h */,
+				EF12E8B31C1A7AE100BA65C8 /* ZGEditToolBar.m */,
+				EF12E8BD1C1AC48100BA65C8 /* ZGEmotionKeyboardView.h */,
+				EF12E8BE1C1AC48100BA65C8 /* ZGEmotionKeyboardView.m */,
+			);
+			path = EmotionView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,6 +278,7 @@
 		EF12E86B1C1A6FBA00BA65C8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = ZG;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = Zong;
 				TargetAttributes = {
@@ -270,9 +347,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF12E8B41C1A7AE100BA65C8 /* ZGEditToolBar.m in Sources */,
 				EF12E87E1C1A6FBA00BA65C8 /* ViewController.m in Sources */,
 				EF12E87B1C1A6FBA00BA65C8 /* AppDelegate.m in Sources */,
 				EF12E8781C1A6FBA00BA65C8 /* main.m in Sources */,
+				EF12E8BF1C1AC48100BA65C8 /* ZGEmotionKeyboardView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +492,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Emotion/Emotion-PrefixHeader.pch";
 				INFOPLIST_FILE = Emotion/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Zong.Emotion;
@@ -424,6 +504,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Emotion/Emotion-PrefixHeader.pch";
 				INFOPLIST_FILE = Emotion/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Zong.Emotion;

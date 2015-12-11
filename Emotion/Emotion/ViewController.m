@@ -7,8 +7,13 @@
 //
 
 #import "ViewController.h"
+#import "ZGEditToolBar.h"
 
 @interface ViewController ()
+
+@property (nonatomic,weak) UIView *editToolBar;
+
+@property (nonatomic,strong) NSLayoutConstraint *editToolBarBottomConstraint;
 
 @end
 
@@ -17,7 +22,60 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    ZGEditToolBar *editToolBar = [[ZGEditToolBar alloc] init];
+    self.editToolBar = editToolBar;
+    // 这两句必须记住得做
+    editToolBar.translatesAutoresizingMaskIntoConstraints = NO;
+    editToolBar.backgroundColor = [UIColor lightGrayColor];
+    
+    // 记得只能添加到父控件才能添加约束
+    [self.view addSubview:editToolBar];
+    
+    NSDictionary *bindings = NSDictionaryOfVariableBindings(editToolBar);
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[editToolBar]-0-|" options:NSLayoutFormatAlignAllLeading metrics:nil views:bindings]];
+    [editToolBar addConstraint: [NSLayoutConstraint constraintWithItem:editToolBar attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeHeight multiplier:0 constant:34]];
+    
+    self.editToolBarBottomConstraint = [NSLayoutConstraint constraintWithItem:editToolBar attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
+    [self.view addConstraint:self.editToolBarBottomConstraint];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardFrameChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
+
+    
+    
 }
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+    
+}
+
+
+#pragma mark - NSNotification for KeyboardFrameChange
+- (void)keyboardFrameChange:(NSNotification *)note
+{
+//    DLog(@"note %@",note);
+    
+    NSDictionary *userInfo = [note valueForKey:@"userInfo"];
+    self.editToolBarBottomConstraint.constant = [[userInfo valueForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].origin.y - [UIScreen mainScreen].bounds.size.height;
+    
+//    [UIView animateWithDuration:[[userInfo valueForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue] animations:^{
+//        [self.view layoutIfNeeded];
+//    }];
+    
+//    [UIView animateKeyframesWithDuration:[[userInfo valueForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue] delay:0 options:UIViewKeyframeAnimationOptionBeginFromCurrentState animations:^{
+//         [self.view layoutIfNeeded];
+//    } completion:nil];
+    
+    [UIView animateWithDuration:[[userInfo valueForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue] delay:0 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionAllowUserInteraction animations:^{
+         [self.view layoutIfNeeded];
+        
+    } completion:nil];
+    
+    
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
