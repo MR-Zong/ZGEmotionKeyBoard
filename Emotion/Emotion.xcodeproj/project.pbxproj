@@ -1,0 +1,521 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EF12E8781C1A6FBA00BA65C8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EF12E8771C1A6FBA00BA65C8 /* main.m */; };
+		EF12E87B1C1A6FBA00BA65C8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF12E87A1C1A6FBA00BA65C8 /* AppDelegate.m */; };
+		EF12E87E1C1A6FBA00BA65C8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF12E87D1C1A6FBA00BA65C8 /* ViewController.m */; };
+		EF12E8811C1A6FBB00BA65C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF12E87F1C1A6FBB00BA65C8 /* Main.storyboard */; };
+		EF12E8831C1A6FBB00BA65C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF12E8821C1A6FBB00BA65C8 /* Assets.xcassets */; };
+		EF12E8861C1A6FBB00BA65C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF12E8841C1A6FBB00BA65C8 /* LaunchScreen.storyboard */; };
+		EF12E8911C1A6FBB00BA65C8 /* EmotionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF12E8901C1A6FBB00BA65C8 /* EmotionTests.m */; };
+		EF12E89C1C1A6FBB00BA65C8 /* EmotionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF12E89B1C1A6FBB00BA65C8 /* EmotionUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EF12E88D1C1A6FBB00BA65C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF12E86B1C1A6FBA00BA65C8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF12E8721C1A6FBA00BA65C8;
+			remoteInfo = Emotion;
+		};
+		EF12E8981C1A6FBB00BA65C8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF12E86B1C1A6FBA00BA65C8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF12E8721C1A6FBA00BA65C8;
+			remoteInfo = Emotion;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EF12E8731C1A6FBA00BA65C8 /* Emotion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Emotion.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF12E8771C1A6FBA00BA65C8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EF12E8791C1A6FBA00BA65C8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EF12E87A1C1A6FBA00BA65C8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EF12E87C1C1A6FBA00BA65C8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		EF12E87D1C1A6FBA00BA65C8 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		EF12E8801C1A6FBB00BA65C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EF12E8821C1A6FBB00BA65C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EF12E8851C1A6FBB00BA65C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EF12E8871C1A6FBB00BA65C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF12E88C1C1A6FBB00BA65C8 /* EmotionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmotionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF12E8901C1A6FBB00BA65C8 /* EmotionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmotionTests.m; sourceTree = "<group>"; };
+		EF12E8921C1A6FBB00BA65C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF12E8971C1A6FBB00BA65C8 /* EmotionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmotionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF12E89B1C1A6FBB00BA65C8 /* EmotionUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmotionUITests.m; sourceTree = "<group>"; };
+		EF12E89D1C1A6FBB00BA65C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EF12E8701C1A6FBA00BA65C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF12E8891C1A6FBB00BA65C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF12E8941C1A6FBB00BA65C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EF12E86A1C1A6FBA00BA65C8 = {
+			isa = PBXGroup;
+			children = (
+				EF12E8751C1A6FBA00BA65C8 /* Emotion */,
+				EF12E88F1C1A6FBB00BA65C8 /* EmotionTests */,
+				EF12E89A1C1A6FBB00BA65C8 /* EmotionUITests */,
+				EF12E8741C1A6FBA00BA65C8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EF12E8741C1A6FBA00BA65C8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EF12E8731C1A6FBA00BA65C8 /* Emotion.app */,
+				EF12E88C1C1A6FBB00BA65C8 /* EmotionTests.xctest */,
+				EF12E8971C1A6FBB00BA65C8 /* EmotionUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EF12E8751C1A6FBA00BA65C8 /* Emotion */ = {
+			isa = PBXGroup;
+			children = (
+				EF12E8791C1A6FBA00BA65C8 /* AppDelegate.h */,
+				EF12E87A1C1A6FBA00BA65C8 /* AppDelegate.m */,
+				EF12E87C1C1A6FBA00BA65C8 /* ViewController.h */,
+				EF12E87D1C1A6FBA00BA65C8 /* ViewController.m */,
+				EF12E87F1C1A6FBB00BA65C8 /* Main.storyboard */,
+				EF12E8821C1A6FBB00BA65C8 /* Assets.xcassets */,
+				EF12E8841C1A6FBB00BA65C8 /* LaunchScreen.storyboard */,
+				EF12E8871C1A6FBB00BA65C8 /* Info.plist */,
+				EF12E8761C1A6FBA00BA65C8 /* Supporting Files */,
+			);
+			path = Emotion;
+			sourceTree = "<group>";
+		};
+		EF12E8761C1A6FBA00BA65C8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EF12E8771C1A6FBA00BA65C8 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EF12E88F1C1A6FBB00BA65C8 /* EmotionTests */ = {
+			isa = PBXGroup;
+			children = (
+				EF12E8901C1A6FBB00BA65C8 /* EmotionTests.m */,
+				EF12E8921C1A6FBB00BA65C8 /* Info.plist */,
+			);
+			path = EmotionTests;
+			sourceTree = "<group>";
+		};
+		EF12E89A1C1A6FBB00BA65C8 /* EmotionUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EF12E89B1C1A6FBB00BA65C8 /* EmotionUITests.m */,
+				EF12E89D1C1A6FBB00BA65C8 /* Info.plist */,
+			);
+			path = EmotionUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EF12E8721C1A6FBA00BA65C8 /* Emotion */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF12E8A01C1A6FBB00BA65C8 /* Build configuration list for PBXNativeTarget "Emotion" */;
+			buildPhases = (
+				EF12E86F1C1A6FBA00BA65C8 /* Sources */,
+				EF12E8701C1A6FBA00BA65C8 /* Frameworks */,
+				EF12E8711C1A6FBA00BA65C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Emotion;
+			productName = Emotion;
+			productReference = EF12E8731C1A6FBA00BA65C8 /* Emotion.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EF12E88B1C1A6FBB00BA65C8 /* EmotionTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF12E8A31C1A6FBB00BA65C8 /* Build configuration list for PBXNativeTarget "EmotionTests" */;
+			buildPhases = (
+				EF12E8881C1A6FBB00BA65C8 /* Sources */,
+				EF12E8891C1A6FBB00BA65C8 /* Frameworks */,
+				EF12E88A1C1A6FBB00BA65C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EF12E88E1C1A6FBB00BA65C8 /* PBXTargetDependency */,
+			);
+			name = EmotionTests;
+			productName = EmotionTests;
+			productReference = EF12E88C1C1A6FBB00BA65C8 /* EmotionTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EF12E8961C1A6FBB00BA65C8 /* EmotionUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF12E8A61C1A6FBB00BA65C8 /* Build configuration list for PBXNativeTarget "EmotionUITests" */;
+			buildPhases = (
+				EF12E8931C1A6FBB00BA65C8 /* Sources */,
+				EF12E8941C1A6FBB00BA65C8 /* Frameworks */,
+				EF12E8951C1A6FBB00BA65C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EF12E8991C1A6FBB00BA65C8 /* PBXTargetDependency */,
+			);
+			name = EmotionUITests;
+			productName = EmotionUITests;
+			productReference = EF12E8971C1A6FBB00BA65C8 /* EmotionUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EF12E86B1C1A6FBA00BA65C8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = Zong;
+				TargetAttributes = {
+					EF12E8721C1A6FBA00BA65C8 = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
+					EF12E88B1C1A6FBB00BA65C8 = {
+						CreatedOnToolsVersion = 7.1.1;
+						TestTargetID = EF12E8721C1A6FBA00BA65C8;
+					};
+					EF12E8961C1A6FBB00BA65C8 = {
+						CreatedOnToolsVersion = 7.1.1;
+						TestTargetID = EF12E8721C1A6FBA00BA65C8;
+					};
+				};
+			};
+			buildConfigurationList = EF12E86E1C1A6FBA00BA65C8 /* Build configuration list for PBXProject "Emotion" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EF12E86A1C1A6FBA00BA65C8;
+			productRefGroup = EF12E8741C1A6FBA00BA65C8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EF12E8721C1A6FBA00BA65C8 /* Emotion */,
+				EF12E88B1C1A6FBB00BA65C8 /* EmotionTests */,
+				EF12E8961C1A6FBB00BA65C8 /* EmotionUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EF12E8711C1A6FBA00BA65C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF12E8861C1A6FBB00BA65C8 /* LaunchScreen.storyboard in Resources */,
+				EF12E8831C1A6FBB00BA65C8 /* Assets.xcassets in Resources */,
+				EF12E8811C1A6FBB00BA65C8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF12E88A1C1A6FBB00BA65C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF12E8951C1A6FBB00BA65C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EF12E86F1C1A6FBA00BA65C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF12E87E1C1A6FBA00BA65C8 /* ViewController.m in Sources */,
+				EF12E87B1C1A6FBA00BA65C8 /* AppDelegate.m in Sources */,
+				EF12E8781C1A6FBA00BA65C8 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF12E8881C1A6FBB00BA65C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF12E8911C1A6FBB00BA65C8 /* EmotionTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF12E8931C1A6FBB00BA65C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF12E89C1C1A6FBB00BA65C8 /* EmotionUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EF12E88E1C1A6FBB00BA65C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF12E8721C1A6FBA00BA65C8 /* Emotion */;
+			targetProxy = EF12E88D1C1A6FBB00BA65C8 /* PBXContainerItemProxy */;
+		};
+		EF12E8991C1A6FBB00BA65C8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF12E8721C1A6FBA00BA65C8 /* Emotion */;
+			targetProxy = EF12E8981C1A6FBB00BA65C8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EF12E87F1C1A6FBB00BA65C8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EF12E8801C1A6FBB00BA65C8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EF12E8841C1A6FBB00BA65C8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EF12E8851C1A6FBB00BA65C8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EF12E89E1C1A6FBB00BA65C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EF12E89F1C1A6FBB00BA65C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EF12E8A11C1A6FBB00BA65C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Emotion/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Zong.Emotion;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EF12E8A21C1A6FBB00BA65C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Emotion/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Zong.Emotion;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		EF12E8A41C1A6FBB00BA65C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = EmotionTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Zong.EmotionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Emotion.app/Emotion";
+			};
+			name = Debug;
+		};
+		EF12E8A51C1A6FBB00BA65C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = EmotionTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Zong.EmotionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Emotion.app/Emotion";
+			};
+			name = Release;
+		};
+		EF12E8A71C1A6FBB00BA65C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = EmotionUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Zong.EmotionUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Emotion;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		EF12E8A81C1A6FBB00BA65C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = EmotionUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Zong.EmotionUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Emotion;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EF12E86E1C1A6FBA00BA65C8 /* Build configuration list for PBXProject "Emotion" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF12E89E1C1A6FBB00BA65C8 /* Debug */,
+				EF12E89F1C1A6FBB00BA65C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF12E8A01C1A6FBB00BA65C8 /* Build configuration list for PBXNativeTarget "Emotion" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF12E8A11C1A6FBB00BA65C8 /* Debug */,
+				EF12E8A21C1A6FBB00BA65C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		EF12E8A31C1A6FBB00BA65C8 /* Build configuration list for PBXNativeTarget "EmotionTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF12E8A41C1A6FBB00BA65C8 /* Debug */,
+				EF12E8A51C1A6FBB00BA65C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		EF12E8A61C1A6FBB00BA65C8 /* Build configuration list for PBXNativeTarget "EmotionUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF12E8A71C1A6FBB00BA65C8 /* Debug */,
+				EF12E8A81C1A6FBB00BA65C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EF12E86B1C1A6FBA00BA65C8 /* Project object */;
+}
