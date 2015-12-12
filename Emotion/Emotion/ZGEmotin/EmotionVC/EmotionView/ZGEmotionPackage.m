@@ -28,6 +28,7 @@ static int const emotionCountInOnePage = 21;
     NSMutableArray *mary = [NSMutableArray array];
     // 资源包里面是没有最近表情的 所以手动加个空的
     ZGEmotionPackage *lastEmotionPackage = [[ZGEmotionPackage alloc] init];
+    [lastEmotionPackage.emotions addObject:[[ZGEmotion alloc] init]];
     [mary addObject:lastEmotionPackage];
     [lastEmotionPackage addEmptyEmotions];
     
@@ -89,6 +90,15 @@ static int const emotionCountInOnePage = 21;
         }
         [self.emotions addObject:[ZGEmotion emotionRemoveButton]];
     }
+}
+
+
+- (NSMutableArray *)emotions
+{
+    if (!_emotions) {
+        _emotions = [NSMutableArray array];
+    }
+    return _emotions;
 }
 
 @end
