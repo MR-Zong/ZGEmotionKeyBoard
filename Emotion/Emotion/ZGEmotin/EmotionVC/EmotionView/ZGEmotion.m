@@ -22,6 +22,13 @@
     return emotion;
 }
 
++ (instancetype)emotionRemoveButton
+{
+    ZGEmotion *emotion = [[ZGEmotion alloc] init];
+    emotion.isRemoveButton = YES;
+    return emotion;
+    
+}
 
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key
 {
@@ -43,6 +50,9 @@
 
 - (NSString *)code
 {
+    if (!_code) {
+        return nil;
+    }
     NSScanner *scanner = [NSScanner scannerWithString:_code];
     unsigned int uintValue = 0;
     [scanner scanHexInt:&uintValue];

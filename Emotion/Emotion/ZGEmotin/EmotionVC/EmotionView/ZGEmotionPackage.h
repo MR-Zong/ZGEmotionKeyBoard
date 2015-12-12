@@ -13,7 +13,7 @@
 // 当前组文件夹的名称
 @property (nonatomic,copy) NSString *ID;
  // 当前组所有的表情模型
-@property (nonatomic,copy) NSArray *emotions;
+@property (nonatomic,strong) NSMutableArray *emotions;
 // 当前组名称
 @property (nonatomic,copy) NSString *group_name_cn;
 

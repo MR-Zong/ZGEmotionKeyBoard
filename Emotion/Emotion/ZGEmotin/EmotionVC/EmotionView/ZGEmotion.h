@@ -27,6 +27,10 @@
 /// 表情类型（图片还是emoji）
 @property (nonatomic,copy) NSString *type;
 
-+ (instancetype)emotionWithDict:(NSDictionary *)dict id:(NSString *)id; 
+// 是否是删除按钮
+@property (nonatomic,assign) BOOL isRemoveButton;
+
++ (instancetype)emotionWithDict:(NSDictionary *)dict id:(NSString *)id;
++ (instancetype)emotionRemoveButton;
 
 @end

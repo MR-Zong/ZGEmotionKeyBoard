@@ -20,7 +20,7 @@
         [self.contentView addSubview:emotionBtn];
         // CGRectInset 返回一个左右，上下有4内边距的CGRect！！
         emotionBtn.frame = CGRectInset(self.contentView.bounds, 4, 4);
-        emotionBtn.backgroundColor = [UIColor whiteColor];
+//        emotionBtn.backgroundColor = [UIColor whiteColor];
         
         // 设置emoji表情的大小,为什么是32呢，是因为其他表情图片是32x32大小的
         emotionBtn.titleLabel.font = [UIFont systemFontOfSize:32];
@@ -39,10 +39,15 @@
         [self.emotionBtn setImage:img forState:UIControlStateNormal];
     }else {
         [self.emotionBtn setImage:nil forState:UIControlStateNormal];
-        DLog(@"emotion.code %@",emotion.code);
+//        DLog(@"emotion.code %@",emotion.code);
         [self.emotionBtn setTitle:emotion.code forState:UIControlStateNormal];
     }
     
+    if (emotion.isRemoveButton) {
+        [self.emotionBtn setImage:[UIImage imageNamed:@"compose_emotion_delete"] forState:UIControlStateNormal];
+        [self.emotionBtn setImage:[UIImage imageNamed:@"compose_emotion_delete_highlighted"] forState:UIControlStateHighlighted];
+        [self.emotionBtn setTitle:nil forState:UIControlStateNormal];
+    }
 
     
 }

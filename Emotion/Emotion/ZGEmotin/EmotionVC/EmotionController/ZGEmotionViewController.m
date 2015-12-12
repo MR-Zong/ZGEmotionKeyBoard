@@ -15,10 +15,15 @@
 
 static NSString *emotionCellIdentifier = @"emotionCell";
 
+static int const emotionCountInOnePage = 21;
+
 
 @interface ZGEmotionViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
 
 @property (nonatomic,copy) NSArray *emotionPackages;
+
+@property (nonatomic,assign) NSInteger index;
+
 
 @end
 
@@ -34,6 +39,9 @@ static NSString *emotionCellIdentifier = @"emotionCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    // 一进来就选择默认表情那一栏
+    self.index = 1;
+    
     [self initializeView];
     
     
@@ -47,6 +55,7 @@ static NSString *emotionCellIdentifier = @"emotionCell";
     _collectionView.translatesAutoresizingMaskIntoConstraints = NO;
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
+    _collectionView.backgroundColor = [UIColor whiteColor];
     
     
     // 注册cell
@@ -55,21 +64,25 @@ static NSString *emotionCellIdentifier = @"emotionCell";
     
     
     // pageControl
-//    UIPageControl *pageControl = [[UIPageControl alloc] init];
-//    _pageControl = pageControl;
-//    _pageControl.translatesAutoresizingMaskIntoConstraints = NO;
-//    _pageControl.numberOfPages = 3;
-//    [self.view addSubview:pageControl];
-//
+    UIPageControl *pageControl = [[UIPageControl alloc] init];
+    _pageControl = pageControl;
+    _pageControl.translatesAutoresizingMaskIntoConstraints = NO;
+    _pageControl.numberOfPages = 3;
+//    CGRect tmpPageControlFrame = _pageControl.frame;
+//    tmpPageControlFrame.size.height = 0;
+//    _pageControl.backgroundColor = [UIColor blackColor];
+//    _pageControl.frame = tmpPageControlFrame;
+    [self.view addSubview:pageControl];
+
     
     // toolBar
     _toolBar = [[UIToolbar alloc] init];
     _toolBar.translatesAutoresizingMaskIntoConstraints = NO;
     _toolBar.tintColor = [UIColor whiteColor];
     _toolBar.backgroundColor = [UIColor blackColor];
-    CGRect tmpFrame = _toolBar.frame;
-    tmpFrame.size.height = 44;
-    _toolBar.frame = tmpFrame;
+//    CGRect tmpFrame = _toolBar.frame;
+//    tmpFrame.size.height = 44;
+//    _toolBar.frame = tmpFrame;
     
     [self.view addSubview:_toolBar];
 
@@ -80,6 +93,8 @@ static NSString *emotionCellIdentifier = @"emotionCell";
     for (NSString *title in tabTitleList) {
         
         UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStylePlain target:self action:@selector(toolBarTabClick:)];
+//        barButtonItem setBackgroundImage:[UIImage] forState:<#(UIControlState)#> barMetrics:<#(UIBarMetrics)#>
+
         barButtonItem.tag = i++;
         
         [mary addObject:barButtonItem];
@@ -94,14 +109,15 @@ static NSString *emotionCellIdentifier = @"emotionCell";
     
     NSDictionary *bindings = @{
                                @"collectionView" : _collectionView,
-//                               @"pageControl" : _pageControl,
+                               @"pageControl" : _pageControl,
                                @"toolBar": _toolBar
                                };
     // add VFL
     NSMutableArray *constraints = [NSMutableArray array];
     [constraints addObjectsFromArray: [NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[collectionView]-0-|" options:kNilOptions metrics:nil views:bindings]];
+    [constraints addObjectsFromArray: [NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[pageControl]-0-|" options:kNilOptions metrics:nil views:bindings]];
     [constraints  addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"|-0-[toolBar]-0-|" options:kNilOptions metrics:nil views:bindings]];
-    [constraints  addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[collectionView]-0-[toolBar]-0-|" options:kNilOptions metrics:nil views:bindings]];
+    [constraints  addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[collectionView]-0-[pageControl(10)]-[toolBar]-0-|" options:kNilOptions metrics:nil views:bindings]];
     
     [self.view addConstraints:[constraints copy]];
 
@@ -120,16 +136,29 @@ static NSString *emotionCellIdentifier = @"emotionCell";
 #pragma mark - toolBarTabClick
 - (void)toolBarTabClick:(UIBarButtonItem *)barButtonItem
 {
-    DLog(@"barButtonItem.tag %zd",barButtonItem.tag);
+    _pageControl.currentPage = 0;
+    self.index = barButtonItem.tag;
+    [_collectionView reloadData];
+    [_collectionView setContentOffset:CGPointMake(0, 0)];
+    
+
+    
 }
-#pragma mark - <UICollectionViewDataSource,UICollectionViewDelegate>
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+
+#pragma mark - <>
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    return self.emotionPackages.count;
+    _pageControl.currentPage = scrollView.contentOffset.x / _collectionView.bounds.size.width;
+
 }
+
+
+
+#pragma mark - <UICollectionViewDataSource,UICollectionViewDelegate>
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    ZGEmotionPackage *package = self.emotionPackages[section];
+    ZGEmotionPackage *package = self.emotionPackages[self.index];
+    _pageControl.numberOfPages = (package.emotions.count + emotionCountInOnePage)/ emotionCountInOnePage -1;
     return package.emotions.count;
 }
 
@@ -138,10 +167,10 @@ static NSString *emotionCellIdentifier = @"emotionCell";
     
     ZGEmotionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:emotionCellIdentifier forIndexPath:indexPath];
     
-    cell.backgroundColor = [UIColor colorWithRed:arc4random_uniform(255) / 255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1.0f];
+//    cell.backgroundColor = [UIColor colorWithRed:arc4random_uniform(255) / 255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1.0f];
     
     
-    ZGEmotionPackage *package = self.emotionPackages[indexPath.section];
+    ZGEmotionPackage *package = self.emotionPackages[self.index];
     
     cell.emotion = package.emotions[indexPath.row];
     
