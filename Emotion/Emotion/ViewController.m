@@ -7,7 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "ZGEditToolBar.h"
+#import "ZGEditToolBarViewController.h"
+
 
 @interface ViewController ()
 
@@ -16,6 +17,8 @@
 @property (nonatomic,strong) NSLayoutConstraint *editToolBarBottomConstraint;
 
 @property (nonatomic,strong) UIView *contentView;
+
+
 
 @end
 
@@ -48,20 +51,24 @@
 
 - (void)setUpEditToolBar
 {
-    ZGEditToolBar *editToolBar = [[ZGEditToolBar alloc] init];
-    self.editToolBar = editToolBar;
+    ZGEditToolBarViewController *editToolBarVC = [[ZGEditToolBarViewController alloc] init];
+    self.editToolBar = editToolBarVC.view;
+    [self addChildViewController:editToolBarVC];
     // 这两句必须记住得做
-    editToolBar.translatesAutoresizingMaskIntoConstraints = NO;
-    editToolBar.backgroundColor = [UIColor lightGrayColor];
+    editToolBarVC.view.translatesAutoresizingMaskIntoConstraints = NO;
+    editToolBarVC.view.backgroundColor = [UIColor lightGrayColor];
     
     // 记得只能添加到父控件才能添加约束
-    [self.view addSubview:editToolBar];
+    [self.view addSubview:editToolBarVC.view];
     
-    NSDictionary *bindings = NSDictionaryOfVariableBindings(editToolBar);
+//    NSDictionary *bindings = NSDictionaryOfVariableBindings(_editToolBar);
+    NSDictionary *bindings = @{
+                               @"editToolBar":self.editToolBar
+                               };
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[editToolBar]-0-|" options:NSLayoutFormatAlignAllLeading metrics:nil views:bindings]];
-    [editToolBar addConstraint: [NSLayoutConstraint constraintWithItem:editToolBar attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeHeight multiplier:0 constant:34]];
+    [self.editToolBar addConstraint: [NSLayoutConstraint constraintWithItem:self.editToolBar attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeHeight multiplier:0 constant:34]];
     
-    self.editToolBarBottomConstraint = [NSLayoutConstraint constraintWithItem:editToolBar attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
+    self.editToolBarBottomConstraint = [NSLayoutConstraint constraintWithItem:self.editToolBar attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
     [self.view addConstraint:self.editToolBarBottomConstraint];
     
     // KeyboardFrameChange 监听

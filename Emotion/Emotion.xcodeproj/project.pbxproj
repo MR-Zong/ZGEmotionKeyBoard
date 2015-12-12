@@ -15,9 +15,14 @@
 		EF12E8861C1A6FBB00BA65C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF12E8841C1A6FBB00BA65C8 /* LaunchScreen.storyboard */; };
 		EF12E8911C1A6FBB00BA65C8 /* EmotionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF12E8901C1A6FBB00BA65C8 /* EmotionTests.m */; };
 		EF12E89C1C1A6FBB00BA65C8 /* EmotionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF12E89B1C1A6FBB00BA65C8 /* EmotionUITests.m */; };
-		EF12E8B41C1A7AE100BA65C8 /* ZGEditToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = EF12E8B31C1A7AE100BA65C8 /* ZGEditToolBar.m */; };
-		EF12E8BF1C1AC48100BA65C8 /* ZGEmotionKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF12E8BE1C1AC48100BA65C8 /* ZGEmotionKeyboardView.m */; };
 		EF12E8C11C1AD26000BA65C8 /* Emotion效果图.png in Resources */ = {isa = PBXBuildFile; fileRef = EF12E8C01C1AD26000BA65C8 /* Emotion效果图.png */; };
+		EF3FC1841C1BB9120057F729 /* ZGEmotionFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3FC1831C1BB9120057F729 /* ZGEmotionFlowLayout.m */; settings = {ASSET_TAGS = (); }; };
+		EF3FC18E1C1BBE340057F729 /* ZGEditToolBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3FC18D1C1BBE340057F729 /* ZGEditToolBarViewController.m */; settings = {ASSET_TAGS = (); }; };
+		EF3FC1911C1BBE3F0057F729 /* ZGEmotionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3FC1901C1BBE3F0057F729 /* ZGEmotionViewController.m */; settings = {ASSET_TAGS = (); }; };
+		EF3FC1941C1BF5E50057F729 /* ZGEmotionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3FC1931C1BF5E50057F729 /* ZGEmotionCell.m */; settings = {ASSET_TAGS = (); }; };
+		EF3FC1961C1C095F0057F729 /* Emoticons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EF3FC1951C1C095F0057F729 /* Emoticons.bundle */; settings = {ASSET_TAGS = (); }; };
+		EF3FC1991C1C13CA0057F729 /* ZGEmotionPackage.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3FC1981C1C13CA0057F729 /* ZGEmotionPackage.m */; settings = {ASSET_TAGS = (); }; };
+		EF3FC19C1C1C15220057F729 /* ZGEmotion.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3FC19B1C1C15220057F729 /* ZGEmotion.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,12 +59,21 @@
 		EF12E8971C1A6FBB00BA65C8 /* EmotionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmotionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF12E89B1C1A6FBB00BA65C8 /* EmotionUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmotionUITests.m; sourceTree = "<group>"; };
 		EF12E89D1C1A6FBB00BA65C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EF12E8B21C1A7AE100BA65C8 /* ZGEditToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGEditToolBar.h; sourceTree = "<group>"; };
-		EF12E8B31C1A7AE100BA65C8 /* ZGEditToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGEditToolBar.m; sourceTree = "<group>"; };
 		EF12E8B61C1AA5D900BA65C8 /* Emotion-PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Emotion-PrefixHeader.pch"; sourceTree = "<group>"; };
-		EF12E8BD1C1AC48100BA65C8 /* ZGEmotionKeyboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGEmotionKeyboardView.h; sourceTree = "<group>"; };
-		EF12E8BE1C1AC48100BA65C8 /* ZGEmotionKeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGEmotionKeyboardView.m; sourceTree = "<group>"; };
 		EF12E8C01C1AD26000BA65C8 /* Emotion效果图.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Emotion效果图.png"; sourceTree = "<group>"; };
+		EF3FC1821C1BB9120057F729 /* ZGEmotionFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGEmotionFlowLayout.h; sourceTree = "<group>"; };
+		EF3FC1831C1BB9120057F729 /* ZGEmotionFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGEmotionFlowLayout.m; sourceTree = "<group>"; };
+		EF3FC18C1C1BBE340057F729 /* ZGEditToolBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGEditToolBarViewController.h; sourceTree = "<group>"; };
+		EF3FC18D1C1BBE340057F729 /* ZGEditToolBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGEditToolBarViewController.m; sourceTree = "<group>"; };
+		EF3FC18F1C1BBE3F0057F729 /* ZGEmotionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGEmotionViewController.h; sourceTree = "<group>"; };
+		EF3FC1901C1BBE3F0057F729 /* ZGEmotionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGEmotionViewController.m; sourceTree = "<group>"; };
+		EF3FC1921C1BF5E50057F729 /* ZGEmotionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGEmotionCell.h; sourceTree = "<group>"; };
+		EF3FC1931C1BF5E50057F729 /* ZGEmotionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGEmotionCell.m; sourceTree = "<group>"; };
+		EF3FC1951C1C095F0057F729 /* Emoticons.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Emoticons.bundle; sourceTree = "<group>"; };
+		EF3FC1971C1C13CA0057F729 /* ZGEmotionPackage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZGEmotionPackage.h; path = Emotion/ZGEmotin/EmotionVC/EmotionView/ZGEmotionPackage.h; sourceTree = SOURCE_ROOT; };
+		EF3FC1981C1C13CA0057F729 /* ZGEmotionPackage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZGEmotionPackage.m; path = Emotion/ZGEmotin/EmotionVC/EmotionView/ZGEmotionPackage.m; sourceTree = SOURCE_ROOT; };
+		EF3FC19A1C1C15220057F729 /* ZGEmotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZGEmotion.h; path = Emotion/ZGEmotin/EmotionVC/EmotionView/ZGEmotion.h; sourceTree = SOURCE_ROOT; };
+		EF3FC19B1C1C15220057F729 /* ZGEmotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZGEmotion.m; path = Emotion/ZGEmotin/EmotionVC/EmotionView/ZGEmotion.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +169,7 @@
 		EF12E8AA1C1A7AA500BA65C8 /* ZGEmotin */ = {
 			isa = PBXGroup;
 			children = (
+				EF3FC1951C1C095F0057F729 /* Emoticons.bundle */,
 				EF12E8AB1C1A7AA500BA65C8 /* EmotionImg */,
 				EF12E8AC1C1A7AA500BA65C8 /* EmotionModel */,
 				EF12E8AD1C1A7AA500BA65C8 /* EmotionResources */,
@@ -174,6 +189,10 @@
 		EF12E8AC1C1A7AA500BA65C8 /* EmotionModel */ = {
 			isa = PBXGroup;
 			children = (
+				EF3FC1971C1C13CA0057F729 /* ZGEmotionPackage.h */,
+				EF3FC1981C1C13CA0057F729 /* ZGEmotionPackage.m */,
+				EF3FC19A1C1C15220057F729 /* ZGEmotion.h */,
+				EF3FC19B1C1C15220057F729 /* ZGEmotion.m */,
 			);
 			path = EmotionModel;
 			sourceTree = "<group>";
@@ -195,28 +214,32 @@
 		EF12E8AF1C1A7AA500BA65C8 /* EmotionVC */ = {
 			isa = PBXGroup;
 			children = (
-				EF12E8B01C1A7AA500BA65C8 /* EmotionController */,
+				EF3FC18B1C1BBE340057F729 /* EmotionController */,
 				EF12E8B11C1A7AA500BA65C8 /* EmotionView */,
 			);
 			path = EmotionVC;
 			sourceTree = "<group>";
 		};
-		EF12E8B01C1A7AA500BA65C8 /* EmotionController */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = EmotionController;
-			sourceTree = "<group>";
-		};
 		EF12E8B11C1A7AA500BA65C8 /* EmotionView */ = {
 			isa = PBXGroup;
 			children = (
-				EF12E8B21C1A7AE100BA65C8 /* ZGEditToolBar.h */,
-				EF12E8B31C1A7AE100BA65C8 /* ZGEditToolBar.m */,
-				EF12E8BD1C1AC48100BA65C8 /* ZGEmotionKeyboardView.h */,
-				EF12E8BE1C1AC48100BA65C8 /* ZGEmotionKeyboardView.m */,
+				EF3FC1821C1BB9120057F729 /* ZGEmotionFlowLayout.h */,
+				EF3FC1831C1BB9120057F729 /* ZGEmotionFlowLayout.m */,
+				EF3FC1921C1BF5E50057F729 /* ZGEmotionCell.h */,
+				EF3FC1931C1BF5E50057F729 /* ZGEmotionCell.m */,
 			);
 			path = EmotionView;
+			sourceTree = "<group>";
+		};
+		EF3FC18B1C1BBE340057F729 /* EmotionController */ = {
+			isa = PBXGroup;
+			children = (
+				EF3FC18C1C1BBE340057F729 /* ZGEditToolBarViewController.h */,
+				EF3FC18D1C1BBE340057F729 /* ZGEditToolBarViewController.m */,
+				EF3FC18F1C1BBE3F0057F729 /* ZGEmotionViewController.h */,
+				EF3FC1901C1BBE3F0057F729 /* ZGEmotionViewController.m */,
+			);
+			path = EmotionController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,6 +350,7 @@
 				EF12E8831C1A6FBB00BA65C8 /* Assets.xcassets in Resources */,
 				EF12E8C11C1AD26000BA65C8 /* Emotion效果图.png in Resources */,
 				EF12E8811C1A6FBB00BA65C8 /* Main.storyboard in Resources */,
+				EF3FC1961C1C095F0057F729 /* Emoticons.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,11 +375,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF12E8B41C1A7AE100BA65C8 /* ZGEditToolBar.m in Sources */,
 				EF12E87E1C1A6FBA00BA65C8 /* ViewController.m in Sources */,
 				EF12E87B1C1A6FBA00BA65C8 /* AppDelegate.m in Sources */,
+				EF3FC19C1C1C15220057F729 /* ZGEmotion.m in Sources */,
+				EF3FC1941C1BF5E50057F729 /* ZGEmotionCell.m in Sources */,
+				EF3FC1841C1BB9120057F729 /* ZGEmotionFlowLayout.m in Sources */,
 				EF12E8781C1A6FBA00BA65C8 /* main.m in Sources */,
-				EF12E8BF1C1AC48100BA65C8 /* ZGEmotionKeyboardView.m in Sources */,
+				EF3FC1991C1C13CA0057F729 /* ZGEmotionPackage.m in Sources */,
+				EF3FC18E1C1BBE340057F729 /* ZGEditToolBarViewController.m in Sources */,
+				EF3FC1911C1BBE3F0057F729 /* ZGEmotionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,6 +526,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Emotion/Emotion-PrefixHeader.pch";
 				INFOPLIST_FILE = Emotion/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Zong.Emotion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -510,6 +539,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Emotion/Emotion-PrefixHeader.pch";
 				INFOPLIST_FILE = Emotion/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Zong.Emotion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -583,6 +613,7 @@
 				EF12E8A21C1A6FBB00BA65C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EF12E8A31C1A6FBB00BA65C8 /* Build configuration list for PBXNativeTarget "EmotionTests" */ = {
 			isa = XCConfigurationList;
@@ -591,6 +622,7 @@
 				EF12E8A51C1A6FBB00BA65C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EF12E8A61C1A6FBB00BA65C8 /* Build configuration list for PBXNativeTarget "EmotionUITests" */ = {
 			isa = XCConfigurationList;
@@ -599,6 +631,7 @@
 				EF12E8A81C1A6FBB00BA65C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
