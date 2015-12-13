@@ -23,6 +23,9 @@
 		EF3FC1961C1C095F0057F729 /* Emoticons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EF3FC1951C1C095F0057F729 /* Emoticons.bundle */; settings = {ASSET_TAGS = (); }; };
 		EF3FC1B41C1C708F0057F729 /* ZGEmotion.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3FC1B11C1C708F0057F729 /* ZGEmotion.m */; settings = {ASSET_TAGS = (); }; };
 		EF3FC1B51C1C708F0057F729 /* ZGEmotionPackage.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3FC1B31C1C708F0057F729 /* ZGEmotionPackage.m */; settings = {ASSET_TAGS = (); }; };
+		EFBBA9F31C1D5D97005931A8 /* UITextView+ZGEmotion.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBBA9F21C1D5D97005931A8 /* UITextView+ZGEmotion.m */; settings = {ASSET_TAGS = (); }; };
+		EFBBA9F61C1D5E6F005931A8 /* ZGEmotionTextAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBBA9F51C1D5E6F005931A8 /* ZGEmotionTextAttachment.m */; settings = {ASSET_TAGS = (); }; };
+		EFBBA9FC1C1D64F6005931A8 /* ZGEmotionTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBBA9FB1C1D64F6005931A8 /* ZGEmotionTextView.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +77,12 @@
 		EF3FC1B11C1C708F0057F729 /* ZGEmotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGEmotion.m; sourceTree = "<group>"; };
 		EF3FC1B21C1C708F0057F729 /* ZGEmotionPackage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGEmotionPackage.h; sourceTree = "<group>"; };
 		EF3FC1B31C1C708F0057F729 /* ZGEmotionPackage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGEmotionPackage.m; sourceTree = "<group>"; };
+		EFBBA9F11C1D5D96005931A8 /* UITextView+ZGEmotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+ZGEmotion.h"; sourceTree = "<group>"; };
+		EFBBA9F21C1D5D97005931A8 /* UITextView+ZGEmotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+ZGEmotion.m"; sourceTree = "<group>"; };
+		EFBBA9F41C1D5E6F005931A8 /* ZGEmotionTextAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGEmotionTextAttachment.h; sourceTree = "<group>"; };
+		EFBBA9F51C1D5E6F005931A8 /* ZGEmotionTextAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGEmotionTextAttachment.m; sourceTree = "<group>"; };
+		EFBBA9FA1C1D64F6005931A8 /* ZGEmotionTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGEmotionTextView.h; sourceTree = "<group>"; };
+		EFBBA9FB1C1D64F6005931A8 /* ZGEmotionTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGEmotionTextView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +178,7 @@
 		EF12E8AA1C1A7AA500BA65C8 /* ZGEmotin */ = {
 			isa = PBXGroup;
 			children = (
+				EFBBA9EF1C1D5D61005931A8 /* EmotionCommon */,
 				EF3FC1AF1C1C708F0057F729 /* EmotionModel */,
 				EF3FC1951C1C095F0057F729 /* Emoticons.bundle */,
 				EF12E8AB1C1A7AA500BA65C8 /* EmotionImg */,
@@ -216,6 +226,8 @@
 				EF3FC1831C1BB9120057F729 /* ZGEmotionFlowLayout.m */,
 				EF3FC1921C1BF5E50057F729 /* ZGEmotionCell.h */,
 				EF3FC1931C1BF5E50057F729 /* ZGEmotionCell.m */,
+				EFBBA9FA1C1D64F6005931A8 /* ZGEmotionTextView.h */,
+				EFBBA9FB1C1D64F6005931A8 /* ZGEmotionTextView.m */,
 			);
 			path = EmotionView;
 			sourceTree = "<group>";
@@ -238,8 +250,27 @@
 				EF3FC1B11C1C708F0057F729 /* ZGEmotion.m */,
 				EF3FC1B21C1C708F0057F729 /* ZGEmotionPackage.h */,
 				EF3FC1B31C1C708F0057F729 /* ZGEmotionPackage.m */,
+				EFBBA9F41C1D5E6F005931A8 /* ZGEmotionTextAttachment.h */,
+				EFBBA9F51C1D5E6F005931A8 /* ZGEmotionTextAttachment.m */,
 			);
 			path = EmotionModel;
+			sourceTree = "<group>";
+		};
+		EFBBA9EF1C1D5D61005931A8 /* EmotionCommon */ = {
+			isa = PBXGroup;
+			children = (
+				EFBBA9F01C1D5D61005931A8 /* Category */,
+			);
+			path = EmotionCommon;
+			sourceTree = "<group>";
+		};
+		EFBBA9F01C1D5D61005931A8 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				EFBBA9F11C1D5D96005931A8 /* UITextView+ZGEmotion.h */,
+				EFBBA9F21C1D5D97005931A8 /* UITextView+ZGEmotion.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -380,9 +411,12 @@
 				EF3FC1B41C1C708F0057F729 /* ZGEmotion.m in Sources */,
 				EF3FC1941C1BF5E50057F729 /* ZGEmotionCell.m in Sources */,
 				EF3FC1841C1BB9120057F729 /* ZGEmotionFlowLayout.m in Sources */,
+				EFBBA9F61C1D5E6F005931A8 /* ZGEmotionTextAttachment.m in Sources */,
+				EFBBA9FC1C1D64F6005931A8 /* ZGEmotionTextView.m in Sources */,
 				EF3FC1B51C1C708F0057F729 /* ZGEmotionPackage.m in Sources */,
 				EF12E8781C1A6FBA00BA65C8 /* main.m in Sources */,
 				EF3FC18E1C1BBE340057F729 /* ZGEditToolBarViewController.m in Sources */,
+				EFBBA9F31C1D5D97005931A8 /* UITextView+ZGEmotion.m in Sources */,
 				EF3FC1911C1BBE3F0057F729 /* ZGEmotionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

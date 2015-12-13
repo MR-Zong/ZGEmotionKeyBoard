@@ -15,6 +15,9 @@ typedef void (^InsertEmotion)(ZGEmotion *emotion);
 
 @property (nonatomic,strong) UICollectionView *collectionView;
 
+@property (nonatomic,copy) NSArray *emotionPackages;
+
+
 + (instancetype)emotionViewController:(InsertEmotion )insertEmotion;
 
 @end

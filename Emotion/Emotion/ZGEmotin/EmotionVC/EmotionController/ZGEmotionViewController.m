@@ -21,7 +21,6 @@ static int const emotionCountInOnePage = 21;
 
 @interface ZGEmotionViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
 
-@property (nonatomic,copy) NSArray *emotionPackages;
 
 @property (nonatomic,assign) NSInteger index;
 
@@ -184,7 +183,7 @@ static int const emotionCountInOnePage = 21;
     
     ZGEmotionPackage *package = self.emotionPackages[self.index];
     
-    cell.emotion = package.emotions[indexPath.row];
+    cell.emotion = package.emotions[indexPath.item];
     
     return cell;
 }
@@ -193,8 +192,45 @@ static int const emotionCountInOnePage = 21;
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ZGEmotionPackage *selectEmotionPackage = self.emotionPackages[self.index];
-    ZGEmotion *selectidEmotion = selectEmotionPackage.emotions[indexPath.row];
-    self.insertEmotion ? self.insertEmotion(selectidEmotion) : nil;
+    ZGEmotion *selectedEmotion = selectEmotionPackage.emotions[indexPath.item];
+    
+    // 添加到最近使用表情
+    if (!selectedEmotion.isRemoveButton) {
+
+        
+        selectedEmotion.userCount ++;
+        ZGEmotionPackage *lastEmotionPackage = self.emotionPackages[0];
+        
+        [lastEmotionPackage.emotions removeLastObject];
+        if (![lastEmotionPackage.emotions containsObject:selectedEmotion]) {
+        
+            [lastEmotionPackage.emotions removeLastObject];
+
+            [lastEmotionPackage.emotions addObject:selectedEmotion];
+            
+            
+        }
+        
+        // 排序有问题，它居然不排序
+        NSArray *sortAry = [lastEmotionPackage.emotions sortedArrayUsingComparator:^NSComparisonResult(ZGEmotion *obj1, ZGEmotion *obj2) {
+            if (obj1.userCount < obj2.userCount) {
+                return NSOrderedDescending;
+            }
+            if (obj1.userCount > obj2.userCount) {
+                return NSOrderedAscending;
+            }
+            return NSOrderedSame;
+//            return obj1.userCount > obj2.userCount;
+        }];
+        
+        lastEmotionPackage.emotions = [NSMutableArray arrayWithArray:sortAry];
+        
+        [lastEmotionPackage.emotions addObject:[ZGEmotion emotionRemoveButton]];
+        
+        
+    }
+    // 调用insertEmotionBlock
+    self.insertEmotion ? self.insertEmotion(selectedEmotion) : nil;
 }
 
 

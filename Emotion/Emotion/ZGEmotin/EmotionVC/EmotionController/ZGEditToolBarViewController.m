@@ -9,6 +9,9 @@
 #import "ZGEditToolBarViewController.h"
 #import "ZGEmotionViewController.h"
 #import "ZGEmotion.h"
+#import "ZGEmotionTextAttachment.h"
+#import "ZGEmotionTextView.h"
+
 typedef void (^InsertEmotion)(ZGEmotion *emotion);
  
 @interface ZGEditToolBarViewController ()
@@ -22,7 +25,7 @@ typedef void (^InsertEmotion)(ZGEmotion *emotion);
     UIButton *_editTypeBtn;
     UIButton *_emotionBtn;
     UIButton *_sendBtn;
-    UITextView *_inputTextView;
+    ZGEmotionTextView *_inputTextView;
     UIView *_emotionKeyBoard;
     ZGEmotionViewController *_emotionVC;
 }
@@ -30,8 +33,6 @@ typedef void (^InsertEmotion)(ZGEmotion *emotion);
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    
     
     [self setUpEmotionVC];
     
@@ -48,16 +49,21 @@ typedef void (^InsertEmotion)(ZGEmotion *emotion);
     __weak ZGEditToolBarViewController * weakSelf = self;
     ZGEmotionViewController *emotionVC = [ZGEmotionViewController emotionViewController:^(ZGEmotion *emotion) {
 
-        if (emotion.code) {
-            ZGEditToolBarViewController *strongSelf = weakSelf;
-            [strongSelf->_inputTextView replaceRange:strongSelf->_inputTextView.selectedTextRange withText:emotion.code];
+       
+        ZGEditToolBarViewController *strongSelf = weakSelf;
+        
+        if (emotion.isRemoveButton) {
+            DLog(@"isRemoveButton click");
+            [strongSelf->_inputTextView deleteBackward];
+        }else {
+            [strongSelf->_inputTextView insertEmotion:emotion];
         }
+        
     }];
                                            
     _emotionVC = emotionVC;
     [self addChildViewController:emotionVC];
     _emotionKeyBoard = emotionVC.view;
-    // 设置下拉退键盘
     _inputTextView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     
 }
@@ -82,8 +88,9 @@ typedef void (^InsertEmotion)(ZGEmotion *emotion);
     [self.view addSubview:_emotionBtn];
     
     
-    _inputTextView = [[UITextView alloc] init];
+    _inputTextView = [[ZGEmotionTextView alloc] init];
     //_inputTextView.placeholder = @"说点什么吧";
+//    _inputTextView.font = [UIFont systemFontOfSize:40];
     _inputTextView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:_inputTextView];
     
@@ -152,10 +159,8 @@ typedef void (^InsertEmotion)(ZGEmotion *emotion);
 - (void)sendBtnClick
 {
     DLog(@"sendBtnClick");
-    self.sendBlock ? self.sendBlock(_inputTextView.attributedText) : nil;
+    self.sendBlock ? self.sendBlock([_inputTextView textFromAttributeText]) : nil;
 }
-
-
 
 
 

@@ -30,6 +30,9 @@
 // 是否是删除按钮
 @property (nonatomic,assign) BOOL isRemoveButton;
 
+// 表情被使用次数
+@property (nonatomic,assign) NSInteger userCount;
+
 + (instancetype)emotionWithDict:(NSDictionary *)dict id:(NSString *)id;
 + (instancetype)emotionRemoveButton;
 

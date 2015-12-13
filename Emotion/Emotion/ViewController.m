@@ -8,6 +8,9 @@
 
 #import "ViewController.h"
 #import "ZGEditToolBarViewController.h"
+#import "ZGEmotionViewController.h"
+#import "ZGEmotionPackage.h"
+#import "ZGEmotion.h"
 
 
 @interface ViewController ()
@@ -46,8 +49,9 @@
 {
     UILabel *label = [[UILabel alloc] init];
     self.label = label;
-    label.frame = CGRectMake(50, 100, 200, 200);
+    label.frame = CGRectMake(5, 100, [UIScreen mainScreen].bounds.size.width, 400);
     label.text = @"zong";
+    label.font = [UIFont systemFontOfSize:40];
     [self.contentView addSubview:label];
     
 }
@@ -70,9 +74,9 @@
 {
     // 传入发送按钮的调用block
     __weak typeof(self) weakSelf = self;
-    ZGEditToolBarViewController *editToolBarVC = [ZGEditToolBarViewController editToolBarViewController:^(NSAttributedString *attributedText) {
+    ZGEditToolBarViewController *editToolBarVC = [ZGEditToolBarViewController editToolBarViewController:^(NSString *text) {
         ViewController *strongSelf = weakSelf;
-        strongSelf.label.attributedText = attributedText;
+        strongSelf.label.text = text;
     }];
                                                   
     self.editToolBar = editToolBarVC.view;
@@ -104,12 +108,46 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-// 点击退键盘
+#pragma mark - 点击退键盘
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    [self.view endEditing:YES];
+    //[self.view endEditing:YES];
+    ZGEmotionViewController *emotionVC = [[ZGEmotionViewController alloc] init];
+    
+    NSString *str = @"[哈哈]好男人[笑cry]";
+    NSString *pattern = @"\\[.*?\\]";
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:kNilOptions error:nil];
+    
+    NSArray *resultAry = [regex matchesInString:str options:kNilOptions range:NSMakeRange(0, str.length)];
+    
+//    DLog(@"resultAry %@",resultAry);
+    for (NSTextCheckingResult *result in resultAry) {
+        DLog(@"result.rang %@",NSStringFromRange(result.range));
+        
+        NSString *emotionStr = [str substringWithRange:result.range];
+        DLog(@"emtionStr %@",emotionStr);
+        for (ZGEmotionPackage *package in emotionVC.emotionPackages) {
+            
+            ZGEmotion *emotion =[package.emotions filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(ZGEmotion *evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
+                return evaluatedObject.chs == emotionStr;
+            }]].firstObject;
+            
+            DLog(@"emotion = %@",emotion);
+            if (emotion) {
+                DLog(@"imgPath %@",emotion.imgPath);
+                break;
+            }
+        }
+             
+             
+             
+    }
+    
+    
     
 }
+
+
 
 
 #pragma mark - NSNotification for KeyboardFrameChange
