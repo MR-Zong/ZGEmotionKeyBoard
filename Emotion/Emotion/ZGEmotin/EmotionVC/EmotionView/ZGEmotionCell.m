@@ -17,6 +17,7 @@
         
         UIButton *emotionBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         self.emotionBtn = emotionBtn;
+        emotionBtn.userInteractionEnabled = NO;
         [self.contentView addSubview:emotionBtn];
         // CGRectInset 返回一个左右，上下有4内边距的CGRect！！
         emotionBtn.frame = CGRectInset(self.contentView.bounds, 4, 4);

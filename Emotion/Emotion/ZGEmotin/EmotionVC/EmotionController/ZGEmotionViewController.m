@@ -10,6 +10,7 @@
 #import "ZGEmotionFlowLayout.h"
 #import "ZGEmotionCell.h"
 #import "ZGEmotionPackage.h"
+#import "ZGEmotion.h"
 
 
 
@@ -23,6 +24,8 @@ static int const emotionCountInOnePage = 21;
 @property (nonatomic,copy) NSArray *emotionPackages;
 
 @property (nonatomic,assign) NSInteger index;
+
+@property (nonatomic,strong) InsertEmotion insertEmotion;
 
 
 @end
@@ -123,6 +126,15 @@ static int const emotionCountInOnePage = 21;
 
 }
 
+
+#pragma mark - class func
++ (instancetype)emotionViewController:(InsertEmotion)insertEmotion
+{
+    ZGEmotionViewController *emotionVC = [[ZGEmotionViewController alloc] init];
+    emotionVC.insertEmotion = insertEmotion;
+    return emotionVC;
+}
+
 #pragma mark - lazyLoad
 - (NSArray *)emotionPackages
 {
@@ -178,7 +190,12 @@ static int const emotionCountInOnePage = 21;
 }
 
 
-
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ZGEmotionPackage *selectEmotionPackage = self.emotionPackages[self.index];
+    ZGEmotion *selectidEmotion = selectEmotionPackage.emotions[indexPath.row];
+    self.insertEmotion ? self.insertEmotion(selectidEmotion) : nil;
+}
 
 
 - (void)didReceiveMemoryWarning {

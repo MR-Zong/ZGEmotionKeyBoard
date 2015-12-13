@@ -8,9 +8,13 @@
 
 #import "ZGEditToolBarViewController.h"
 #import "ZGEmotionViewController.h"
-
+#import "ZGEmotion.h"
+typedef void (^InsertEmotion)(ZGEmotion *emotion);
  
-@interface ZGEditToolBarViewController () 
+@interface ZGEditToolBarViewController ()
+
+@property (nonatomic,strong) SendBlock sendBlock;
+
 @end
 
 @implementation ZGEditToolBarViewController
@@ -40,7 +44,16 @@
 - (void)setUpEmotionVC
 {
  
-    ZGEmotionViewController *emotionVC = [[ZGEmotionViewController alloc] init];
+    // 要传入一个block处理collectionView的点击
+    __weak ZGEditToolBarViewController * weakSelf = self;
+    ZGEmotionViewController *emotionVC = [ZGEmotionViewController emotionViewController:^(ZGEmotion *emotion) {
+
+        if (emotion.code) {
+            ZGEditToolBarViewController *strongSelf = weakSelf;
+            [strongSelf->_inputTextView replaceRange:strongSelf->_inputTextView.selectedTextRange withText:emotion.code];
+        }
+    }];
+                                           
     _emotionVC = emotionVC;
     [self addChildViewController:emotionVC];
     _emotionKeyBoard = emotionVC.view;
@@ -100,6 +113,14 @@
     
 }
 
+#pragma mark - class func
++ (instancetype)editToolBarViewController:(SendBlock)sendBlock
+{
+    ZGEditToolBarViewController *editVC = [[ZGEditToolBarViewController alloc] init];
+    editVC.sendBlock = sendBlock;
+    return editVC;
+}
+
 #pragma mark - Button Click listen
 - (void)editTypeBtnClick
 {
@@ -131,6 +152,7 @@
 - (void)sendBtnClick
 {
     DLog(@"sendBtnClick");
+    self.sendBlock ? self.sendBlock(_inputTextView.attributedText) : nil;
 }
 
 

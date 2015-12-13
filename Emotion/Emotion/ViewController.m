@@ -18,6 +18,9 @@
 
 @property (nonatomic,strong) UIView *contentView;
 
+@property (nonatomic,weak) UILabel *label;
+
+
 
 
 @end
@@ -33,6 +36,20 @@
     [self setUpContentView];
 
     [self setUpEditToolBar];
+    
+    
+    [self Test];
+    
+}
+
+- (void)Test
+{
+    UILabel *label = [[UILabel alloc] init];
+    self.label = label;
+    label.frame = CGRectMake(50, 100, 200, 200);
+    label.text = @"zong";
+    [self.contentView addSubview:label];
+    
 }
 
 - (void)setUpContentView
@@ -51,7 +68,13 @@
 
 - (void)setUpEditToolBar
 {
-    ZGEditToolBarViewController *editToolBarVC = [[ZGEditToolBarViewController alloc] init];
+    // 传入发送按钮的调用block
+    __weak typeof(self) weakSelf = self;
+    ZGEditToolBarViewController *editToolBarVC = [ZGEditToolBarViewController editToolBarViewController:^(NSAttributedString *attributedText) {
+        ViewController *strongSelf = weakSelf;
+        strongSelf.label.attributedText = attributedText;
+    }];
+                                                  
     self.editToolBar = editToolBarVC.view;
     [self addChildViewController:editToolBarVC];
     // 这两句必须记住得做

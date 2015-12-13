@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^SendBlock)(NSAttributedString *attributedText);
 @interface ZGEditToolBarViewController : UIViewController
 
++ (instancetype)editToolBarViewController:(SendBlock) sendBlock;
 @end

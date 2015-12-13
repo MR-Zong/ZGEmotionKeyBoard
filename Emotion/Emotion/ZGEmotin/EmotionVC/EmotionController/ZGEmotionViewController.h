@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class ZGEmotion;
+typedef void (^InsertEmotion)(ZGEmotion *emotion);
+
 @interface ZGEmotionViewController : UIViewController
 
 @property (nonatomic,strong) UICollectionView *collectionView;
+
++ (instancetype)emotionViewController:(InsertEmotion )insertEmotion;
 
 @end
