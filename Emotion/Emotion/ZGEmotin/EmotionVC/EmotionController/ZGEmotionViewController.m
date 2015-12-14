@@ -169,18 +169,16 @@ static int const emotionCountInOnePage = 21;
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     ZGEmotionPackage *package = self.emotionPackages[self.index];
+    // 计算分页的页数，这是一个分页算法，记住它吧
     _pageControl.numberOfPages = (package.emotions.count + emotionCountInOnePage)/ emotionCountInOnePage -1;
     return package.emotions.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     ZGEmotionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:emotionCellIdentifier forIndexPath:indexPath];
-    
+
 //    cell.backgroundColor = [UIColor colorWithRed:arc4random_uniform(255) / 255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1.0f];
-    
-    
     ZGEmotionPackage *package = self.emotionPackages[self.index];
     
     cell.emotion = package.emotions[indexPath.item];
@@ -188,40 +186,39 @@ static int const emotionCountInOnePage = 21;
     return cell;
 }
 
+//
+//- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+//{
+// 永远警示自己，要仔细看代理方法，用错了很难发现bug的！！
+//}
 
-- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ZGEmotionPackage *selectEmotionPackage = self.emotionPackages[self.index];
     ZGEmotion *selectedEmotion = selectEmotionPackage.emotions[indexPath.item];
     
-    // 添加到最近使用表情
+    // 1,添加到最近使用表情
     if (!selectedEmotion.isRemoveButton) {
-
+        
         
         selectedEmotion.userCount ++;
         ZGEmotionPackage *lastEmotionPackage = self.emotionPackages[0];
         
         [lastEmotionPackage.emotions removeLastObject];
         if (![lastEmotionPackage.emotions containsObject:selectedEmotion]) {
-        
+            
             [lastEmotionPackage.emotions removeLastObject];
-
+            
             [lastEmotionPackage.emotions addObject:selectedEmotion];
             
             
         }
         
         // 排序有问题，它居然不排序
-        NSArray *sortAry = [lastEmotionPackage.emotions sortedArrayUsingComparator:^NSComparisonResult(ZGEmotion *obj1, ZGEmotion *obj2) {
-            if (obj1.userCount < obj2.userCount) {
-                return NSOrderedDescending;
-            }
-            if (obj1.userCount > obj2.userCount) {
-                return NSOrderedAscending;
-            }
-            return NSOrderedSame;
-//            return obj1.userCount > obj2.userCount;
+        NSArray *sortAry = [lastEmotionPackage.emotions sortedArrayUsingComparator:^NSComparisonResult(ZGEmotion *emotion1, ZGEmotion *emotion2) {
+            return emotion1.userCount < emotion2.userCount;
         }];
+        
         
         lastEmotionPackage.emotions = [NSMutableArray arrayWithArray:sortAry];
         
@@ -229,7 +226,9 @@ static int const emotionCountInOnePage = 21;
         
         
     }
-    // 调用insertEmotionBlock
+    
+    
+    // 2,调用insertEmotionBlock
     self.insertEmotion ? self.insertEmotion(selectedEmotion) : nil;
 }
 

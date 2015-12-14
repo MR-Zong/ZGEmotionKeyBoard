@@ -56,7 +56,7 @@
         NSRange range =self.selectedRange;
         [mAttributStr replaceCharactersInRange:range withAttributedString:pngStr];
         // 必须设置字体大小，因为插入的表情图片是依照前一个来设置大小的，而attachmentString有默认的大小！
-        [mAttributStr addAttribute:NSFontAttributeName value:self.font range:NSMakeRange(range.location ,1)];
+        [mAttributStr addAttribute:NSFontAttributeName value:!self.font?[UIFont systemFontOfSize:12] : self.font range:NSMakeRange(range.location ,1)];
         
         // 再把替换后的结果富文本设置回输入框
         self.attributedText = mAttributStr;

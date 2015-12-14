@@ -11,6 +11,7 @@
 #import "ZGEmotionViewController.h"
 #import "ZGEmotionPackage.h"
 #import "ZGEmotion.h"
+#import "ZGEmotionTextAttachment.h"
 
 
 @interface ViewController ()
@@ -114,40 +115,50 @@
     //[self.view endEditing:YES];
     ZGEmotionViewController *emotionVC = [[ZGEmotionViewController alloc] init];
     
-    NSString *str = @"[哈哈]好男人[笑cry]";
+//    NSString *str = @"[哈哈]好男人[笑cry]"; // 测试
+    NSString *str = self.label.text;
     NSString *pattern = @"\\[.*?\\]";
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:kNilOptions error:nil];
     
     NSArray *resultAry = [regex matchesInString:str options:kNilOptions range:NSMakeRange(0, str.length)];
     
-//    DLog(@"resultAry %@",resultAry);
-    for (NSTextCheckingResult *result in resultAry) {
-        DLog(@"result.rang %@",NSStringFromRange(result.range));
-        
+    NSMutableAttributedString *resultEmotionStr = [[NSMutableAttributedString alloc] initWithString:str];
+    
+    NSInteger index = resultAry.count;
+    while (index > 0) {
+        NSTextCheckingResult *result = resultAry[--index];
         NSString *emotionStr = [str substringWithRange:result.range];
-        DLog(@"emtionStr %@",emotionStr);
-        for (ZGEmotionPackage *package in emotionVC.emotionPackages) {
-            
-            ZGEmotion *emotion =[package.emotions filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(ZGEmotion *evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
-                return evaluatedObject.chs == emotionStr;
-            }]].firstObject;
-            
-            DLog(@"emotion = %@",emotion);
-            if (emotion) {
-                DLog(@"imgPath %@",emotion.imgPath);
-                break;
-            }
-        }
-             
-             
-             
+//        DLog(@"emtionStr %@",emotionStr);
+        ZGEmotion *emotion = [self emotionFindInPackages:emotionStr VC:emotionVC];
+        
+        ZGEmotionTextAttachment *emotionTextAttachment = [ZGEmotionTextAttachment emotionTextAttachment:emotion font:[UIFont systemFontOfSize:14]];
+        
+        NSAttributedString *pngStr = [NSAttributedString attributedStringWithAttachment:emotionTextAttachment];
+        
+        [resultEmotionStr replaceCharactersInRange:result.range withAttributedString:pngStr];
     }
     
-    
+
+    self.label.attributedText = resultEmotionStr;
     
 }
 
-
+- (ZGEmotion *)emotionFindInPackages:(NSString *)emotionStr VC:(ZGEmotionViewController *)emotionVC
+{
+    ZGEmotion *emotion = nil;
+    for (ZGEmotionPackage *package in emotionVC.emotionPackages) {
+        
+        emotion = [package.emotions filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"chs == %@",emotionStr]].firstObject;
+        
+        if (emotion) {
+//            DLog(@"imgPath %@",emotion.imgPath);
+            break;
+        }
+        
+    }
+    
+    return emotion;
+}
 
 
 #pragma mark - NSNotification for KeyboardFrameChange
