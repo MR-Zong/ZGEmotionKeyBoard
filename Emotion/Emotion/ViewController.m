@@ -50,8 +50,9 @@
 {
     UILabel *label = [[UILabel alloc] init];
     self.label = label;
-    label.frame = CGRectMake(5, 100, [UIScreen mainScreen].bounds.size.width, 400);
+    label.frame = CGRectMake(5, 50, [UIScreen mainScreen].bounds.size.width, 400);
     label.text = @"zong";
+    label.numberOfLines = 0;
     label.font = [UIFont systemFontOfSize:40];
     [self.contentView addSubview:label];
     
