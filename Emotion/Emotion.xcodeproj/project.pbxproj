@@ -16,7 +16,6 @@
 		EF12E8911C1A6FBB00BA65C8 /* EmotionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF12E8901C1A6FBB00BA65C8 /* EmotionTests.m */; };
 		EF12E89C1C1A6FBB00BA65C8 /* EmotionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF12E89B1C1A6FBB00BA65C8 /* EmotionUITests.m */; };
 		EF12E8C11C1AD26000BA65C8 /* Emotion效果图.png in Resources */ = {isa = PBXBuildFile; fileRef = EF12E8C01C1AD26000BA65C8 /* Emotion效果图.png */; };
-		EF19C3921C21079E0094ABCF /* ZGEmotionLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EF19C3911C21079E0094ABCF /* ZGEmotionLabel.m */; };
 		EF3FC1841C1BB9120057F729 /* ZGEmotionFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3FC1831C1BB9120057F729 /* ZGEmotionFlowLayout.m */; };
 		EF3FC18E1C1BBE340057F729 /* ZGEditToolBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3FC18D1C1BBE340057F729 /* ZGEditToolBarViewController.m */; };
 		EF3FC1911C1BBE3F0057F729 /* ZGEmotionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3FC1901C1BBE3F0057F729 /* ZGEmotionViewController.m */; };
@@ -24,6 +23,7 @@
 		EF3FC1961C1C095F0057F729 /* Emoticons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EF3FC1951C1C095F0057F729 /* Emoticons.bundle */; };
 		EF3FC1B41C1C708F0057F729 /* ZGEmotion.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3FC1B11C1C708F0057F729 /* ZGEmotion.m */; };
 		EF3FC1B51C1C708F0057F729 /* ZGEmotionPackage.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3FC1B31C1C708F0057F729 /* ZGEmotionPackage.m */; };
+		EF85AD3E1C22D3E500D9EEB3 /* ZGEmotionLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EF85AD3D1C22D3E500D9EEB3 /* ZGEmotionLabel.m */; };
 		EFBBA9F31C1D5D97005931A8 /* UITextView+ZGEmotion.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBBA9F21C1D5D97005931A8 /* UITextView+ZGEmotion.m */; };
 		EFBBA9F61C1D5E6F005931A8 /* ZGEmotionTextAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBBA9F51C1D5E6F005931A8 /* ZGEmotionTextAttachment.m */; };
 		EFBBA9FC1C1D64F6005931A8 /* ZGEmotionTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBBA9FB1C1D64F6005931A8 /* ZGEmotionTextView.m */; };
@@ -65,8 +65,6 @@
 		EF12E89D1C1A6FBB00BA65C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF12E8B61C1AA5D900BA65C8 /* Emotion-PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Emotion-PrefixHeader.pch"; sourceTree = "<group>"; };
 		EF12E8C01C1AD26000BA65C8 /* Emotion效果图.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Emotion效果图.png"; sourceTree = "<group>"; };
-		EF19C3901C21079E0094ABCF /* ZGEmotionLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGEmotionLabel.h; sourceTree = "<group>"; };
-		EF19C3911C21079E0094ABCF /* ZGEmotionLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGEmotionLabel.m; sourceTree = "<group>"; };
 		EF3FC1821C1BB9120057F729 /* ZGEmotionFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGEmotionFlowLayout.h; sourceTree = "<group>"; };
 		EF3FC1831C1BB9120057F729 /* ZGEmotionFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGEmotionFlowLayout.m; sourceTree = "<group>"; };
 		EF3FC18C1C1BBE340057F729 /* ZGEditToolBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGEditToolBarViewController.h; sourceTree = "<group>"; };
@@ -80,6 +78,8 @@
 		EF3FC1B11C1C708F0057F729 /* ZGEmotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGEmotion.m; sourceTree = "<group>"; };
 		EF3FC1B21C1C708F0057F729 /* ZGEmotionPackage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGEmotionPackage.h; sourceTree = "<group>"; };
 		EF3FC1B31C1C708F0057F729 /* ZGEmotionPackage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGEmotionPackage.m; sourceTree = "<group>"; };
+		EF85AD3C1C22D3E500D9EEB3 /* ZGEmotionLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGEmotionLabel.h; sourceTree = "<group>"; };
+		EF85AD3D1C22D3E500D9EEB3 /* ZGEmotionLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGEmotionLabel.m; sourceTree = "<group>"; };
 		EFBBA9F11C1D5D96005931A8 /* UITextView+ZGEmotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+ZGEmotion.h"; sourceTree = "<group>"; };
 		EFBBA9F21C1D5D97005931A8 /* UITextView+ZGEmotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+ZGEmotion.m"; sourceTree = "<group>"; };
 		EFBBA9F41C1D5E6F005931A8 /* ZGEmotionTextAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGEmotionTextAttachment.h; sourceTree = "<group>"; };
@@ -225,8 +225,8 @@
 		EF12E8B11C1A7AA500BA65C8 /* EmotionView */ = {
 			isa = PBXGroup;
 			children = (
-				EF19C3901C21079E0094ABCF /* ZGEmotionLabel.h */,
-				EF19C3911C21079E0094ABCF /* ZGEmotionLabel.m */,
+				EF85AD3C1C22D3E500D9EEB3 /* ZGEmotionLabel.h */,
+				EF85AD3D1C22D3E500D9EEB3 /* ZGEmotionLabel.m */,
 				EF3FC1821C1BB9120057F729 /* ZGEmotionFlowLayout.h */,
 				EF3FC1831C1BB9120057F729 /* ZGEmotionFlowLayout.m */,
 				EF3FC1921C1BF5E50057F729 /* ZGEmotionCell.h */,
@@ -422,7 +422,7 @@
 				EF12E8781C1A6FBA00BA65C8 /* main.m in Sources */,
 				EF3FC18E1C1BBE340057F729 /* ZGEditToolBarViewController.m in Sources */,
 				EFBBA9F31C1D5D97005931A8 /* UITextView+ZGEmotion.m in Sources */,
-				EF19C3921C21079E0094ABCF /* ZGEmotionLabel.m in Sources */,
+				EF85AD3E1C22D3E500D9EEB3 /* ZGEmotionLabel.m in Sources */,
 				EF3FC1911C1BBE3F0057F729 /* ZGEmotionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

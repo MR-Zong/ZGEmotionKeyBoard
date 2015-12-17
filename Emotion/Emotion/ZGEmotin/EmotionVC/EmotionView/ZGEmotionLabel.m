@@ -15,7 +15,7 @@ static NSString *const facePrefix = @"[/";
 static NSString *const faceSuffix = @"]";
 static NSString *const faceSpace = @" ";
 static NSString *const faceImageName = @"imageName";
-static NSInteger const emotionImageWidth = 24;
+static NSInteger  emotionImageWidth ; // 推荐24
 
 #define _facePadding_ 3.0
 #define _textPadding_ 5.0
@@ -23,57 +23,46 @@ static NSInteger const emotionImageWidth = 24;
 
 @implementation ZGEmotionLabel
 
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    if (self = [super initWithFrame:frame]) {
+        emotionImageWidth = self.font.lineHeight;
+    }
+    return self;
+}
+
 - (void)drawRect:(CGRect)rect
 {
+    // 翻转坐标系
     CGContextRef contxt = UIGraphicsGetCurrentContext();
     CGContextSetTextMatrix(contxt, CGAffineTransformIdentity);
     
     CGAffineTransform flipVertical = CGAffineTransformMake(1, 0, 0, -1, 0, self.bounds.size.height);
     CGContextConcatCTM(contxt, flipVertical);
     
+
+    if(self.text == nil || [self.text isEqual:[NSNull null]]) return;
     
-//    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]initWithString:@"1.设置字形变换矩阵为CGAffineTransformIdentity，也就是说每一个字形都不做图形变换，将当前context的坐标系进行flip，2.为图片设置CTRunDelegate,delegate决定留给图片的空间大小。 3.把图片画上去" ];
-    if(self.text == nil || [self.text isEqual:[NSNull null]])
-        return;
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithAttributedString:[self getAttributedTextFromString:self.text]];
-    
 //    [attributedString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:16] range:NSMakeRange(0, [attributedString length])];
-    
-    
-//    [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:NSMakeRange(0.0, 10)];
-//    [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(10, 20)];
-    
-//    //创建图片位置
-//    NSString *taobaoImageName = @"meile.png";
-//    CTRunDelegateCallbacks imageCallbacks;
-//    imageCallbacks.version = kCTRunDelegateVersion1;
-//    imageCallbacks.dealloc = RunDelegateDeallocCallback;
-//    imageCallbacks.getAscent = RunDelegateGetAscentCallback;
-//    imageCallbacks.getDescent = RunDelegateGetDescentCallback;
-//    imageCallbacks.getWidth = RunDelegateGetWidthCallback;
-//    
-//    CTRunDelegateRef runDelegate = CTRunDelegateCreate(&imageCallbacks, (__bridge void *)taobaoImageName);
-//    NSMutableAttributedString *imageAttributedString =[[NSMutableAttributedString alloc]initWithString:@" "];//创建一个空格，来使attributedString生效
-//    [imageAttributedString addAttribute:(NSString *)kCTRunDelegateAttributeName value:(__bridge id)runDelegate range:NSMakeRange(0, 1)];//设置回调
-//    CFRelease(runDelegate);
-//    
-//    [imageAttributedString addAttribute:@"imageName" value:taobaoImageName range:NSMakeRange(0, 1)];
-//    [attributedString insertAttributedString:imageAttributedString atIndex:30];//把attribute 插入到一个特定的位置
-    
-    //创建图片位置至此完成那个
     
     
     CTFramesetterRef ctFrameSetter = CTFramesetterCreateWithAttributedString((CFMutableAttributedStringRef)attributedString);
     CGMutablePathRef path = CGPathCreateMutable();
-    CGRect bounds = CGRectMake(0.0, 20.0, self.bounds.size.width, self.bounds.size.height-20);
+//    CGRect bounds = CGRectMake(0.0, 20.0, self.bounds.size.width, self.bounds.size.height-20);
+    CGRect bounds = CGRectMake(0.0, 0.0, self.bounds.size.width, self.bounds.size.height);
+//    NSStringDrawingOptions options =  NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading;
+//     CGRect bounds = [self.text boundingRectWithSize:CGSizeMake(self.bounds.size.width, MAXFLOAT) options:options attributes:@{NSFontAttributeName: self.font} context:nil];
+
+    
     CGPathAddRect(path, NULL, bounds);
     
     CTFrameRef ctFrame = CTFramesetterCreateFrame(ctFrameSetter, CFRangeMake(0, 0), path, NULL);
     CTFrameDraw(ctFrame, contxt);
     
-    //现在开始画图片
+    // 开始画图片
     CFArrayRef lines = CTFrameGetLines(ctFrame);
-    CGPoint lineOrigins [CFArrayGetCount(lines)]; //这是一个方法
+    CGPoint lineOrigins [CFArrayGetCount(lines)];
     CTFrameGetLineOrigins(ctFrame, CFRangeMake(0, 0), lineOrigins);
     
     
@@ -97,7 +86,7 @@ static NSInteger const emotionImageWidth = 24;
             runRect=CGRectMake(lineOrigin.x + CTLineGetOffsetForStringIndex(line, CTRunGetStringRange(run).location, NULL), lineOrigin.y - runDescent, runRect.size.width, runAscent + runDescent);
             
             NSString *imageName = [attributes objectForKey:faceImageName];
-            //图片渲染逻辑
+
             if (imageName)
             {
                 UIImage *image = [UIImage imageNamed:imageName];
@@ -107,15 +96,13 @@ static NSInteger const emotionImageWidth = 24;
 //                    imageDrawRect.size = image.size;
                     imageDrawRect.size = CGSizeMake(emotionImageWidth, emotionImageWidth);
                     imageDrawRect.origin.x = runRect.origin.x + lineOrigin.x;
-                    imageDrawRect.origin.y = lineOrigin.y +lineDescent+10;// 怎么精确计算
+                    imageDrawRect.origin.y = lineOrigin.y -5;//;+lineDescent+10;// 怎么精确计算
                     CGContextDrawImage(contxt, imageDrawRect, image.CGImage);
                 }
             }
         }
     }
     
-    
-    //画图片结束
     
     CFRelease(ctFrame);
     CFRelease(path);
@@ -133,9 +120,7 @@ void RunDelegateDeallocCallback(void* refCon)
 
 CGFloat RunDelegateGetAscentCallback(void* refCon)
 {
-    //    NSString *imageName = (NSString*)refCon;
-    //    UIImage *image = [UIImage imageNamed:imageName];
-    //    return image.size.height;
+
     return 0;
 }
 
@@ -166,12 +151,27 @@ CGFloat RunDelegateGetWidthCallback(void* refCon)
     
     CTFontRef font = CTFontCreateWithName((CFStringRef)self.font.fontName, self.font.pointSize, NULL);
     [attributedText addAttribute:(NSString*)kCTFontAttributeName value:(__bridge id)font  range:NSMakeRange(0, attributedText.length)];
-    [attributedText addAttribute:(NSString*)kCTKernAttributeName value:[NSNumber numberWithFloat:self.wordInset] range:NSMakeRange(0, attributedText.length)];
+//    [attributedText addAttribute:(NSString*)kCTKernAttributeName value:[NSNumber numberWithFloat:self.wordInset] range:NSMakeRange(0, attributedText.length)];
     [attributedText addAttribute:(NSString*)kCTForegroundColorAttributeName value:(id)self.textColor.CGColor range:NSMakeRange(0, attributedText.length)];
-    CFRelease(font);
     
-    //  NSLog(@"%@",attributedText.string);
+    //断落样式
+    //换行模式
+    CTParagraphStyleSetting lineBreadMode;
+    CTLineBreakMode linkBreak = kCTLineBreakByCharWrapping;
+    lineBreadMode.spec = kCTParagraphStyleSpecifierLineBreakMode;
+    lineBreadMode.value = &linkBreak;
+    lineBreadMode.valueSize = sizeof(CTLineBreakMode);
+    
 
+    
+    CTParagraphStyleSetting setting[] = {lineBreadMode};
+    
+    CTParagraphStyleRef style = CTParagraphStyleCreate(setting, 1);
+    [attributedText addAttribute:(NSString*)kCTParagraphStyleAttributeName value:(id)style range:NSMakeRange(0, attributedText.length)];
+    CFRelease(style);
+    
+    
+    CFRelease(font);
     
     return attributedText;
 }
@@ -185,15 +185,15 @@ CGFloat RunDelegateGetWidthCallback(void* refCon)
 {
     if(str == nil || [str isEqual:[NSNull null]])
         return;
+    if (attributedText == nil || [attributedText isEqual:[NSNull null]])
+        return;
     
     NSRange prefixRange = [str rangeOfString:facePrefix];
     NSRange suffixRange = [str rangeOfString:faceSuffix];
     
     if(prefixRange.location != NSNotFound && suffixRange.location != NSNotFound && suffixRange.location > prefixRange.location)
     {
-        // NSLog(@"表情");
         NSString *forwordStr = [str substringToIndex:prefixRange.location];
-        // NSLog(@"forwordStr = %@",forwordStr);
         if(forwordStr.length > 0)
         {
             NSAttributedString *text = [[NSAttributedString alloc] initWithString:forwordStr];
@@ -201,17 +201,13 @@ CGFloat RunDelegateGetWidthCallback(void* refCon)
 
         }
         
-        // NSLog(@"%@",attributedText.string);
-        //获取表情名称
         NSRange faceRange = NSMakeRange(prefixRange.location, suffixRange.location - prefixRange.location + suffixRange.length);
         NSString *faceName = [str substringWithRange:faceRange];
         
-        NSLog(@"faceName = %@ ,length = %zd",faceName,faceName.length);
         // 通过faceName 获取表情图片名称
         NSString *imageName = [self getImageNameFromStr:faceName];
         
-        //  NSLog(@"imageName = %@",imageName);
-        //设定图片绘制代理
+      
         CTRunDelegateCallbacks imageCallBack;
         imageCallBack.version = kCTRunDelegateVersion1;
         imageCallBack.dealloc = RunDelegateDeallocCallback;
@@ -227,14 +223,14 @@ CGFloat RunDelegateGetWidthCallback(void* refCon)
             NSMutableAttributedString *image = [[NSMutableAttributedString alloc] initWithString:faceSpace];
             [image addAttribute:(NSString*)kCTRunDelegateAttributeName value:(__bridge id)runDelegate range:NSMakeRange(0, faceSpace.length)];
             [image addAttribute:faceImageName value:imageName range:NSMakeRange(0, faceSpace.length)];
-            
+
             [attributedText appendAttributedString:image];
             
             CFRelease(runDelegate);
         }
         
         NSString *backStr = [str substringFromIndex:suffixRange.location + suffixRange.length];
-        // NSLog(@"%@",attributedText.string);
+        
         if(backStr.length > 0)
         {
             [self faceRangeFromStr:backStr withAttributedText:attributedText];
@@ -242,7 +238,6 @@ CGFloat RunDelegateGetWidthCallback(void* refCon)
     }
     else
     {
-        // NSLog(@"结束");
         NSAttributedString *text = [[NSAttributedString alloc] initWithString:str];
         [attributedText appendAttributedString:text];
 
@@ -252,7 +247,8 @@ CGFloat RunDelegateGetWidthCallback(void* refCon)
 // 获取表情图片名称
 - (NSString*)getImageNameFromStr:(NSString*) str
 {
-  return [EmojiBoardView EmojiImageNameFromCoder:str];
+    
+    return [EmojiBoardView EmojiImageNameFromCoder:str] ? [EmojiBoardView EmojiImageNameFromCoder:str] : @"fanxing_m19.png";
 }
 
 
