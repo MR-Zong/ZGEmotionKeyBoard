@@ -16,13 +16,13 @@
 		EF12E8911C1A6FBB00BA65C8 /* EmotionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF12E8901C1A6FBB00BA65C8 /* EmotionTests.m */; };
 		EF12E89C1C1A6FBB00BA65C8 /* EmotionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF12E89B1C1A6FBB00BA65C8 /* EmotionUITests.m */; };
 		EF12E8C11C1AD26000BA65C8 /* Emotion效果图.png in Resources */ = {isa = PBXBuildFile; fileRef = EF12E8C01C1AD26000BA65C8 /* Emotion效果图.png */; };
-		EF3FC1841C1BB9120057F729 /* ZGEmotionFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3FC1831C1BB9120057F729 /* ZGEmotionFlowLayout.m */; settings = {ASSET_TAGS = (); }; };
-		EF3FC18E1C1BBE340057F729 /* ZGEditToolBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3FC18D1C1BBE340057F729 /* ZGEditToolBarViewController.m */; settings = {ASSET_TAGS = (); }; };
-		EF3FC1911C1BBE3F0057F729 /* ZGEmotionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3FC1901C1BBE3F0057F729 /* ZGEmotionViewController.m */; settings = {ASSET_TAGS = (); }; };
-		EF3FC1941C1BF5E50057F729 /* ZGEmotionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3FC1931C1BF5E50057F729 /* ZGEmotionCell.m */; settings = {ASSET_TAGS = (); }; };
-		EF3FC1961C1C095F0057F729 /* Emoticons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EF3FC1951C1C095F0057F729 /* Emoticons.bundle */; settings = {ASSET_TAGS = (); }; };
-		EF3FC1B41C1C708F0057F729 /* ZGEmotion.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3FC1B11C1C708F0057F729 /* ZGEmotion.m */; settings = {ASSET_TAGS = (); }; };
-		EF3FC1B51C1C708F0057F729 /* ZGEmotionPackage.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3FC1B31C1C708F0057F729 /* ZGEmotionPackage.m */; settings = {ASSET_TAGS = (); }; };
+		EF3FC1841C1BB9120057F729 /* ZGEmotionFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3FC1831C1BB9120057F729 /* ZGEmotionFlowLayout.m */; };
+		EF3FC18E1C1BBE340057F729 /* ZGEditToolBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3FC18D1C1BBE340057F729 /* ZGEditToolBarViewController.m */; };
+		EF3FC1911C1BBE3F0057F729 /* ZGEmotionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3FC1901C1BBE3F0057F729 /* ZGEmotionViewController.m */; };
+		EF3FC1941C1BF5E50057F729 /* ZGEmotionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3FC1931C1BF5E50057F729 /* ZGEmotionCell.m */; };
+		EF3FC1961C1C095F0057F729 /* Emoticons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EF3FC1951C1C095F0057F729 /* Emoticons.bundle */; };
+		EF3FC1B41C1C708F0057F729 /* ZGEmotion.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3FC1B11C1C708F0057F729 /* ZGEmotion.m */; };
+		EF3FC1B51C1C708F0057F729 /* ZGEmotionPackage.m in Sources */ = {isa = PBXBuildFile; fileRef = EF3FC1B31C1C708F0057F729 /* ZGEmotionPackage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +74,8 @@
 		EF3FC1B11C1C708F0057F729 /* ZGEmotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGEmotion.m; sourceTree = "<group>"; };
 		EF3FC1B21C1C708F0057F729 /* ZGEmotionPackage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGEmotionPackage.h; sourceTree = "<group>"; };
 		EF3FC1B31C1C708F0057F729 /* ZGEmotionPackage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGEmotionPackage.m; sourceTree = "<group>"; };
+		EFC017BA1C3E57E700012F77 /* ZGEmotionLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGEmotionLabel.h; sourceTree = "<group>"; };
+		EFC017BB1C3E57E700012F77 /* ZGEmotionLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGEmotionLabel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +214,8 @@
 		EF12E8B11C1A7AA500BA65C8 /* EmotionView */ = {
 			isa = PBXGroup;
 			children = (
+				EFC017BA1C3E57E700012F77 /* ZGEmotionLabel.h */,
+				EFC017BB1C3E57E700012F77 /* ZGEmotionLabel.m */,
 				EF3FC1821C1BB9120057F729 /* ZGEmotionFlowLayout.h */,
 				EF3FC1831C1BB9120057F729 /* ZGEmotionFlowLayout.m */,
 				EF3FC1921C1BF5E50057F729 /* ZGEmotionCell.h */,
